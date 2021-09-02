@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     var itemDelegate: ItemDelegate?
     
-    let items = [
+    var items = [
         Item(name: "Molho de Tomate", cal: 30.2),
         Item(name: "Manjericão", cal: 2),
         Item(name: "Parmesão", cal: 40.7),
@@ -37,6 +37,15 @@ class ViewController: UIViewController {
         nameLabel.textColor = .systemRed
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
+        
+        let addItemBarButton = UIBarButtonItem(title: "Add Item", style: .plain, target: self, action: #selector(self.addNewItem))
+        navigationItem.rightBarButtonItem = addItemBarButton
+    }
+    
+    @objc func addNewItem() {
+        let addNewItemViewController = AddNewItemViewController()
+        addNewItemViewController.newItemDelegate = self
+        self.navigationController?.pushViewController(addNewItemViewController, animated: true)
     }
 
     @IBAction func addButtonClicked(_ sender: Any) {
@@ -47,6 +56,7 @@ class ViewController: UIViewController {
               let happinessString = hapinessTextField.text,
               let happiness = Int(happinessString)
         else {
+            showErrorAlert(title: "Campos Vazios", message: "Preencha os campos corretamente")
             return
         }
         
@@ -94,5 +104,12 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         view.endEditing(true)
+    }
+}
+
+extension ViewController: NewItemDelegate {
+    func add(_ item: Item) {
+        items.append(item)
+        self.itemsTableView.reloadData()
     }
 }

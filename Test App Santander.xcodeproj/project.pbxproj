@@ -3,11 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		05E9D5B9329E6A3212AE1B2C /* Pods_Test_App_Santander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8753A90AB28DC6585C328444 /* Pods_Test_App_Santander.framework */; };
+		D825A87F26E1706A00593D83 /* AddNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825A87D26E1706A00593D83 /* AddNewItemViewController.swift */; };
+		D825A88026E1706A00593D83 /* AddNewItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D825A87E26E1706A00593D83 /* AddNewItemViewController.xib */; };
+		D825A88226E17B4D00593D83 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825A88126E17B4D00593D83 /* UIViewController+Alert.swift */; };
 		D8351D8E26DD89340052C998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8351D8D26DD89340052C998 /* AppDelegate.swift */; };
 		D8351D9026DD89340052C998 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8351D8F26DD89340052C998 /* SceneDelegate.swift */; };
 		D8351D9226DD89340052C998 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8351D9126DD89340052C998 /* ViewController.swift */; };
@@ -24,6 +27,9 @@
 		8753A90AB28DC6585C328444 /* Pods_Test_App_Santander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Test_App_Santander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95129996B933E467F057549F /* Pods-Test App Santander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test App Santander.release.xcconfig"; path = "Target Support Files/Pods-Test App Santander/Pods-Test App Santander.release.xcconfig"; sourceTree = "<group>"; };
 		C33C6A3CAADA6DE7BB4F3A80 /* Pods-Test App Santander.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test App Santander.debug.xcconfig"; path = "Target Support Files/Pods-Test App Santander/Pods-Test App Santander.debug.xcconfig"; sourceTree = "<group>"; };
+		D825A87D26E1706A00593D83 /* AddNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewItemViewController.swift; sourceTree = "<group>"; };
+		D825A87E26E1706A00593D83 /* AddNewItemViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewItemViewController.xib; sourceTree = "<group>"; };
+		D825A88126E17B4D00593D83 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		D8351D8A26DD89340052C998 /* Test App Santander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test App Santander.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8351D8D26DD89340052C998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8351D8F26DD89340052C998 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 				D8351D8F26DD89340052C998 /* SceneDelegate.swift */,
 				D8351D9626DD89350052C998 /* Assets.xcassets */,
 				D8351D9B26DD89350052C998 /* Info.plist */,
+				D825A88126E17B4D00593D83 /* UIViewController+Alert.swift */,
 			);
 			path = "Test App Santander";
 			sourceTree = "<group>";
@@ -106,6 +113,7 @@
 				D8351D9326DD89340052C998 /* Main.storyboard */,
 				D8351D9826DD89350052C998 /* LaunchScreen.storyboard */,
 				D888427F26E030F9003A40D2 /* MealTableViewCell.swift */,
+				D825A87E26E1706A00593D83 /* AddNewItemViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 			children = (
 				D8351D9126DD89340052C998 /* ViewController.swift */,
 				D8351DA826DED50A0052C998 /* MainTableTableViewController.swift */,
+				D825A87D26E1706A00593D83 /* AddNewItemViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +196,7 @@
 			files = (
 				D8351D9A26DD89350052C998 /* LaunchScreen.storyboard in Resources */,
 				D8351D9726DD89350052C998 /* Assets.xcassets in Resources */,
+				D825A88026E1706A00593D83 /* AddNewItemViewController.xib in Resources */,
 				D8351D9526DD89340052C998 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +233,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D825A88226E17B4D00593D83 /* UIViewController+Alert.swift in Sources */,
 				D8351DA226DEC5A00052C998 /* Item.swift in Sources */,
 				D8351D9226DD89340052C998 /* ViewController.swift in Sources */,
+				D825A87F26E1706A00593D83 /* AddNewItemViewController.swift in Sources */,
 				D888428026E030F9003A40D2 /* MealTableViewCell.swift in Sources */,
 				D8351D8E26DD89340052C998 /* AppDelegate.swift in Sources */,
 				D8351DA426DEC7550052C998 /* UserData.swift in Sources */,

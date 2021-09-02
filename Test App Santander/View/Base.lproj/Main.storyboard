@@ -98,38 +98,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealsCell" rowHeight="120" id="5Wt-T8-PMH" customClass="MealTableViewCell" customModule="Test_App_Santander" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="120"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealsCell" rowHeight="86" id="5Wt-T8-PMH" customClass="MealTableViewCell" customModule="Test_App_Santander" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Wt-T8-PMH" id="xuS-yL-TH8">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvv-sP-hkA">
-                                            <rect key="frame" x="20" y="19" width="45" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvv-sP-hkA">
+                                            <rect key="frame" x="8" y="19" width="45" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Felicidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2v-ID-akh">
-                                            <rect key="frame" x="316" y="18" width="78" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Felicidade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2v-ID-akh">
+                                            <rect key="frame" x="324" y="19" width="78" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7T-a7-Myr">
-                                            <rect key="frame" x="20" y="71" width="374" height="38"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7T-a7-Myr">
+                                            <rect key="frame" x="8" y="57.5" width="398" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="v7T-a7-Myr" secondAttribute="bottom" constant="8" id="0RD-fb-774"/>
+                                        <constraint firstItem="v7T-a7-Myr" firstAttribute="top" secondItem="tvv-sP-hkA" secondAttribute="bottom" constant="17.5" id="2fW-d7-0P0"/>
+                                        <constraint firstItem="v7T-a7-Myr" firstAttribute="leading" secondItem="xuS-yL-TH8" secondAttribute="leading" constant="8" id="2rC-NP-Rtm"/>
+                                        <constraint firstItem="p2v-ID-akh" firstAttribute="top" secondItem="xuS-yL-TH8" secondAttribute="topMargin" constant="8" id="6Nd-Ye-aZP"/>
+                                        <constraint firstAttribute="trailing" secondItem="v7T-a7-Myr" secondAttribute="trailing" constant="8" id="Jrx-j8-OOb"/>
+                                        <constraint firstItem="p2v-ID-akh" firstAttribute="trailing" secondItem="xuS-yL-TH8" secondAttribute="trailingMargin" constant="8" id="L0f-X5-Dnf"/>
+                                        <constraint firstItem="tvv-sP-hkA" firstAttribute="top" secondItem="xuS-yL-TH8" secondAttribute="topMargin" constant="8" id="Nkb-DX-f8n"/>
+                                        <constraint firstItem="tvv-sP-hkA" firstAttribute="leading" secondItem="xuS-yL-TH8" secondAttribute="leading" constant="8" id="OwK-q4-2gK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="happinessLabel" destination="v7T-a7-Myr" id="6df-pN-GkI"/>
+                                    <outlet property="happinessLabel" destination="p2v-ID-akh" id="HFN-Td-sA8"/>
                                     <outlet property="itemsLabel" destination="v7T-a7-Myr" id="TCc-CX-1uC"/>
                                     <outlet property="nameLabel" destination="tvv-sP-hkA" id="JSA-Lh-XeS"/>
                                 </connections>

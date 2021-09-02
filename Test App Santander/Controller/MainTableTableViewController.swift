@@ -11,7 +11,8 @@ class MainTableTableViewController: UITableViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 120
+        tableView.estimatedRowHeight = 86
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     // MARK: - Table view data source
@@ -35,7 +36,7 @@ class MainTableTableViewController: UITableViewController {
         cell.happinessLabel.text = "Felicidade \(meal.happiness)"
         cell.itemsLabel.text = meal.items.reduce("", { result, item in
             guard let res = result else { return "" }
-            return "\(res), \(item.name)"
+            return "\(res)\n\(item.name)"
         })
         
         return cell
