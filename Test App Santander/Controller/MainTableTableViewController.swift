@@ -11,6 +11,7 @@ class MainTableTableViewController: UITableViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadMeals()
         tableView.estimatedRowHeight = 86
         tableView.rowHeight = UITableView.automaticDimension
     }
@@ -34,10 +35,10 @@ class MainTableTableViewController: UITableViewController {
         
         cell.nameLabel.text = meal.name
         cell.happinessLabel.text = "Felicidade \(meal.happiness)"
-        cell.itemsLabel.text = meal.items.reduce("", { result, item in
-            guard let res = result else { return "" }
-            return "\(res)\n\(item.name)"
-        })
+        cell.itemsLabel.text = meal.getItemsString()
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.didLongPressOnCell))
+        cell.addGestureRecognizer(longPressGesture)
         
         return cell
     }
@@ -47,10 +48,32 @@ class MainTableTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    @objc func didLongPressOnCell(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .began,
+              let cell = gesture.view as? UITableViewCell,
+              let indexPath = tableView.indexPath(for: cell)
+              else { return }
+        
+        let meals = UserData.meals
+        let meal = meals[indexPath.row]
+        
+        let title = meal.name
+        let itemsString = meal.getItemsString()
+        let message = "Felicidade \(meal.happiness)\n\(itemsString)"
+        
+        let action = UIAlertAction(title: "Apagar", style: .destructive) { _ in
+            UserData.meals.remove(at: indexPath.row)
+            self.saveMeals(meals: UserData.meals)
+            self.tableView.reloadData()
+        }
+        
+        showAlert(title: title, message: message, actions: [action])
+    }
+    
     // MARK: - Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showNewItemController" {
-            if let newItemViewController = segue.destination as? ViewController {
+            if let newItemViewController = segue.destination as? NewMealViewController {
                 newItemViewController.itemDelegate = self
             }
         }
@@ -61,6 +84,33 @@ class MainTableTableViewController: UITableViewController {
 extension MainTableTableViewController: ItemDelegate {
     // TODO: implementar depois
     func add() {
+        saveMeals(meals: UserData.meals)
         tableView.reloadData()
+    }
+    
+    func loadMeals() {
+        guard let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let mealsURL = directoryURL.appendingPathComponent("refeicoes")
+        
+        do {
+            let mealsData = try Data(contentsOf: mealsURL)
+            guard let meals = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(mealsData) as? [Meal] else { return }
+            UserData.meals = meals
+        } catch {
+            showAlert(title: "Erro ao carregar refeições", message: error.localizedDescription)
+        }
+        tableView.reloadData()
+    }
+    
+    func saveMeals(meals: [Meal]) {
+        guard let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let mealsURL = directoryURL.appendingPathComponent("refeicoes")
+        
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: false)
+            try data.write(to: mealsURL)
+        } catch {
+            showAlert(title: "Erro ao salvar refeições", message: error.localizedDescription)
+        }
     }
 }

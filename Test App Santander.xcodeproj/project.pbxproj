@@ -13,7 +13,7 @@
 		D825A88226E17B4D00593D83 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = D825A88126E17B4D00593D83 /* UIViewController+Alert.swift */; };
 		D8351D8E26DD89340052C998 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8351D8D26DD89340052C998 /* AppDelegate.swift */; };
 		D8351D9026DD89340052C998 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8351D8F26DD89340052C998 /* SceneDelegate.swift */; };
-		D8351D9226DD89340052C998 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8351D9126DD89340052C998 /* ViewController.swift */; };
+		D8351D9226DD89340052C998 /* NewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8351D9126DD89340052C998 /* NewMealViewController.swift */; };
 		D8351D9526DD89340052C998 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8351D9326DD89340052C998 /* Main.storyboard */; };
 		D8351D9726DD89350052C998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8351D9626DD89350052C998 /* Assets.xcassets */; };
 		D8351D9A26DD89350052C998 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8351D9826DD89350052C998 /* LaunchScreen.storyboard */; };
@@ -33,7 +33,7 @@
 		D8351D8A26DD89340052C998 /* Test App Santander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test App Santander.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8351D8D26DD89340052C998 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8351D8F26DD89340052C998 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D8351D9126DD89340052C998 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8351D9126DD89340052C998 /* NewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMealViewController.swift; sourceTree = "<group>"; };
 		D8351D9426DD89340052C998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8351D9626DD89350052C998 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8351D9926DD89350052C998 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		D8351DA726DED2410052C998 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D8351D9126DD89340052C998 /* ViewController.swift */,
+				D8351D9126DD89340052C998 /* NewMealViewController.swift */,
 				D8351DA826DED50A0052C998 /* MainTableTableViewController.swift */,
 				D825A87D26E1706A00593D83 /* AddNewItemViewController.swift */,
 			);
@@ -235,7 +235,7 @@
 			files = (
 				D825A88226E17B4D00593D83 /* UIViewController+Alert.swift in Sources */,
 				D8351DA226DEC5A00052C998 /* Item.swift in Sources */,
-				D8351D9226DD89340052C998 /* ViewController.swift in Sources */,
+				D8351D9226DD89340052C998 /* NewMealViewController.swift in Sources */,
 				D825A87F26E1706A00593D83 /* AddNewItemViewController.swift in Sources */,
 				D888428026E030F9003A40D2 /* MealTableViewCell.swift in Sources */,
 				D8351D8E26DD89340052C998 /* AppDelegate.swift in Sources */,

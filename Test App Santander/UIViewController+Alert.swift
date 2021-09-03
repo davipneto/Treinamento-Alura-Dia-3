@@ -8,12 +8,17 @@
 import UIKit
 
 extension UIViewController {
-    func showErrorAlert(title: String, message: String) {
+    func showAlert(title: String, message: String, actions: [UIAlertAction] = []) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
             alert.dismiss(animated: true, completion: nil)
         }
         alert.addAction(action)
+        
+        for action in actions {
+            alert.addAction(action)
+        }
+        
         self.present(alert, animated: true, completion: nil)
     }
 }

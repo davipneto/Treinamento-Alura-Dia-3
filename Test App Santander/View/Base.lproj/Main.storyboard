@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-1580" y="-101"/>
         </scene>
-        <!--Novo Item-->
+        <!--Nova Refeição-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Test_App_Santander" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NewMealViewController" customModule="Test_App_Santander" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +75,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Novo Item" id="Gbj-Xb-4Bg"/>
+                    <navigationItem key="navigationItem" title="Nova Refeição" id="Gbj-Xb-4Bg"/>
                     <connections>
                         <outlet property="addButton" destination="lZu-ui-BrL" id="BC4-P2-7Kc"/>
                         <outlet property="hapinessTextField" destination="1iu-0j-aZP" id="v1Q-x7-LjF"/>
@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="224.63768115942031" y="-101.11607142857143"/>
         </scene>
-        <!--Itens-->
+        <!--Refeições-->
         <scene sceneID="AWV-a9-SRB">
             <objects>
                 <tableViewController id="5yy-8P-PZl" customClass="MainTableTableViewController" customModule="Test_App_Santander" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,7 +147,7 @@
                             <outlet property="delegate" destination="5yy-8P-PZl" id="Vs4-UL-V4Q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Itens" id="gyg-Za-9op">
+                    <navigationItem key="navigationItem" title="Refeições" id="gyg-Za-9op">
                         <barButtonItem key="rightBarButtonItem" title="Adicionar" id="oLU-gp-ApT">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="showNewItemController" id="xTy-8W-eaK"/>

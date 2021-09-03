@@ -21,6 +21,13 @@ class AddNewItemViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Adicionar Item"
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapOnView))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func didTapOnView() {
+        view.endEditing(true)
     }
     
     @IBAction func addButtonClicked(_ sender: Any) {
@@ -29,7 +36,7 @@ class AddNewItemViewController: UIViewController {
               let calText = calTextField.text,
               let cal = Double(calText)
         else {
-            showErrorAlert(title: "Campos Vazios", message: "Preencha os campos corretamente")
+            showAlert(title: "Campos Vazios", message: "Preencha os campos corretamente")
             return
         }
         

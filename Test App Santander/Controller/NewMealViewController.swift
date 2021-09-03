@@ -11,7 +11,7 @@ protocol ItemDelegate {
     func add()
 }
 
-class ViewController: UIViewController {
+class NewMealViewController: UIViewController {
     
     var itemDelegate: ItemDelegate?
     
@@ -40,12 +40,20 @@ class ViewController: UIViewController {
         
         let addItemBarButton = UIBarButtonItem(title: "Add Item", style: .plain, target: self, action: #selector(self.addNewItem))
         navigationItem.rightBarButtonItem = addItemBarButton
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapOnView))
+        tapGesture.delegate = self
+        view.addGestureRecognizer(tapGesture)
     }
     
     @objc func addNewItem() {
         let addNewItemViewController = AddNewItemViewController()
         addNewItemViewController.newItemDelegate = self
         self.navigationController?.pushViewController(addNewItemViewController, animated: true)
+    }
+    
+    @objc func didTapOnView() {
+        view.endEditing(true)
     }
 
     @IBAction func addButtonClicked(_ sender: Any) {
@@ -56,7 +64,7 @@ class ViewController: UIViewController {
               let happinessString = hapinessTextField.text,
               let happiness = Int(happinessString)
         else {
-            showErrorAlert(title: "Campos Vazios", message: "Preencha os campos corretamente")
+            showAlert(title: "Campos Vazios", message: "Preencha os campos corretamente")
             return
         }
         
@@ -69,7 +77,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
+extension NewMealViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -107,9 +115,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension ViewController: NewItemDelegate {
+extension NewMealViewController: NewItemDelegate {
     func add(_ item: Item) {
         items.append(item)
         self.itemsTableView.reloadData()
+    }
+}
+
+extension NewMealViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if let tableView = itemsTableView, let touchView = touch.view, touchView.isDescendant(of: tableView) {
+            return false
+        }
+        return true
     }
 }
