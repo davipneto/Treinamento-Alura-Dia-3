@@ -15,13 +15,7 @@ class NewMealViewController: UIViewController {
     
     var itemDelegate: ItemDelegate?
     
-    var items = [
-        Item(name: "Molho de Tomate", cal: 30.2),
-        Item(name: "Manjericão", cal: 2),
-        Item(name: "Parmesão", cal: 40.7),
-        Item(name: "Muçarela", cal: 89.3),
-        Item(name: "Aipim", cal: 50)
-    ]
+    var items = [Item]()
     var itemsSelected: [Item] = []
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -34,6 +28,9 @@ class NewMealViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadItems()
+        
         nameLabel.textColor = .systemRed
         itemsTableView.dataSource = self
         itemsTableView.delegate = self
@@ -118,6 +115,7 @@ extension NewMealViewController: UITableViewDataSource, UITableViewDelegate {
 extension NewMealViewController: NewItemDelegate {
     func add(_ item: Item) {
         items.append(item)
+        saveItems(items: items)
         self.itemsTableView.reloadData()
     }
 }
@@ -128,5 +126,33 @@ extension NewMealViewController: UIGestureRecognizerDelegate {
             return false
         }
         return true
+    }
+}
+
+extension NewMealViewController {
+    func loadItems() {
+        guard let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let itemsURL = directoryURL.appendingPathComponent("itens")
+        
+        do {
+            let itemsData = try Data(contentsOf: itemsURL)
+            guard let items = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(itemsData) as? [Item] else { return }
+            self.items = items
+        } catch {
+            showAlert(title: "Erro ao carregar itens", message: error.localizedDescription)
+        }
+        itemsTableView.reloadData()
+    }
+    
+    func saveItems(items: [Item]) {
+        guard let directoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let itemsURL = directoryURL.appendingPathComponent("itens")
+        
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: items, requiringSecureCoding: false)
+            try data.write(to: itemsURL)
+        } catch {
+            showAlert(title: "Erro ao salvar itens", message: error.localizedDescription)
+        }
     }
 }
